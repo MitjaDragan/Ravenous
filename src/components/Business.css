@@ -6,26 +6,30 @@
     padding: 20px;
     margin: 20px;
     width: 300px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.image-container img {
+.imageContainer img {
     width: 100%;
     height: auto;
+    border-radius: 4px;
 }
 
-.Business-information {
+.BusinessInformation {
     text-align: center;
 }
 
-.Business-address, .Business-reviews {
+.BusinessAddress, .BusinessReviews {
     margin-top: 10px;
 }
 
-.Business-address p {
+.BusinessAddress p {
     margin: 5px 0;
 }
 
-.Business-reviews h3 {
+.BusinessReviews h3 {
     margin: 5px 0;
 }
 
