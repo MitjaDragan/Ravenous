@@ -3,6 +3,10 @@
     flex-direction: column;
     align-items: center;
     margin-bottom: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .SearchBar-sort-options {
@@ -33,6 +37,7 @@
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
+    width: 200px;
 }
 
 .SearchBar-submit a {
@@ -46,4 +51,9 @@
 
 .SearchBar-submit a:hover {
     background-color: #ff4d4d;
+}
+
+.active {
+    font-weight: bold;
+    color: #ff6f61;
 }
