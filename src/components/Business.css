@@ -1,0 +1,34 @@
+.Business {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin: 20px;
+    width: 300px;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+}
+
+.Business-information {
+    text-align: center;
+}
+
+.Business-address, .Business-reviews {
+    margin-top: 10px;
+}
+
+.Business-address p {
+    margin: 5px 0;
+}
+
+.Business-reviews h3 {
+    margin: 5px 0;
+}
+
+.rating {
+    color: #FFA500;
+}
