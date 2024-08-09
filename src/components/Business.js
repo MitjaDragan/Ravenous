@@ -1,5 +1,6 @@
 import React from 'react';
 import './Business.css';
+import { Link } from 'react-router-dom';
 
 class Business extends React.Component {
     render() {
@@ -7,9 +8,11 @@ class Business extends React.Component {
         return (
             <div className="Business">
                 <div className="image-container">
-                    <img src={business.imageSrc} alt={business.name}/>
+                    <img src={business.imageSrc} alt={business.name} />
                 </div>
-                <h2>{business.name}</h2>
+                <Link to={`/business/${business.id}`} className="Business-name">
+                    <h2>{business.name}</h2>
+                </Link>
                 <div className="Business-information">
                     <div className="Business-address">
                         <p>{business.address}</p>
