@@ -1,0 +1,41 @@
+.Homepage {
+    text-align: center;
+    padding: 20px;
+    background-color: var(--background-color-light);
+    transition: background-color 0.4s, color 0.4s;
+}
+
+body.dark-theme .Homepage {
+    background-color: var(--background-color-dark);
+    color: var(--text-color-dark);
+}
+
+.Homepage-header {
+    margin-bottom: 40px;
+}
+
+.Homepage-header h1 {
+    font-size: 3rem;
+    color: inherit;
+    margin-bottom: 20px;
+}
+
+.Homepage-header p {
+    font-size: 1.5rem;
+    color: inherit;
+}
+
+.Homepage-content {
+    margin-bottom: 40px;
+}
+
+.Homepage-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-theme .Homepage-image img {
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+}
