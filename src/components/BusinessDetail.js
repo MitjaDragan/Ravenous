@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Yelp from '../Yelp';
+import './BusinessDetail.css';
 
 function BusinessDetail() {
   const { id } = useParams();
@@ -11,22 +12,36 @@ function BusinessDetail() {
   }, [id]);
 
   if (!business) {
-    return <div>Loading...</div>;
+    return <div className="BusinessDetail-loading">Loading...</div>;
   }
 
   return (
-    <div>
-      <h2>{business.name}</h2>
-      <img src={business.photos ? business.photos[0] : business.image_url} alt={business.name} />
-      <p>{business.address}</p>
-      <p>{business.city}, {business.state} {business.zip_code}</p>
-      <p>{business.phone}</p>
-      <p>Rating: {business.rating} stars</p>
-      <p>Price: {business.price}</p>
-      <p>Hours: {business.hours ? business.hours[0].open.map(hour => (
-          <div key={hour.day}>{`Day ${hour.day}: ${hour.start} - ${hour.end}`}</div>
-        )) : 'No hours available'}
-      </p>
+    <div className="BusinessDetail">
+      <div className="BusinessDetail-header">
+        <h2>{business.name}</h2>
+        <p className="BusinessDetail-rating">
+          Rating: {business.rating} stars | {business.review_count} reviews
+        </p>
+      </div>
+      <div className="BusinessDetail-content">
+        <img src={business.image_url} alt={business.name} />
+        <div className="BusinessDetail-info">
+          <p><strong>Address:</strong> {business.location.address1}, {business.location.city}, {business.location.state} {business.location.zip_code}</p>
+          <p><strong>Phone:</strong> {business.phone}</p>
+          <p><strong>Price:</strong> {business.price}</p>
+          <p><strong>Category:</strong> {business.categories.map(category => category.title).join(', ')}</p>
+          <p><strong>Hours:</strong></p>
+          {business.hours ? (
+            <ul>
+              {business.hours[0].open.map((hour, index) => (
+                <li key={index}>{`Day ${hour.day}: ${hour.start} - ${hour.end}`}</li>
+              ))}
+            </ul>
+          ) : (
+            <p>No hours available</p>
+          )}
+        </div>
+      </div>
     </div>
   );
 }
