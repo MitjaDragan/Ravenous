@@ -7,8 +7,7 @@ const Yelp = {
 
         return fetch(url, {
             headers: {
-                'Authorization': `Bearer ${apiKey}`,
-                'Origin': 'https://localhost:3000' // This might be required to bypass CORS restrictions
+                'Authorization': `Bearer ${apiKey}`
             }
         })
         .then(response => {
@@ -31,7 +30,28 @@ const Yelp = {
                     rating: business.rating,
                     reviewCount: business.review_count
                 }));
+            } else {
+                throw new Error('No businesses found!');
             }
+        })
+        .catch(error => {
+            console.error('Error:', error);
+        });
+    },
+
+    getBusinessDetails(id) {
+        const url = `${corsAnywhereUrl}https://api.yelp.com/v3/businesses/${id}`;
+
+        return fetch(url, {
+            headers: {
+                'Authorization': `Bearer ${apiKey}`
+            }
+        })
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            }
+            throw new Error('Request failed!');
         })
         .catch(error => {
             console.error('Error:', error);
