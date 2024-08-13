@@ -4,9 +4,27 @@
     align-items: center;
     margin-bottom: 40px;
     padding: 40px;
-    background-color: #f9f9f9;
+    background-color: var(--search-bar-color-light);
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-theme .SearchBar {
+    background-color: var(--search-bar-color-dark);
+}
+
+.SearchBar-Logo {
+    justify-content: center;
+    margin: auto;
+    color: var(--search-bar-color-dark);
+}
+
+.SearchBar-Logo:hover {
+    cursor: pointer;
+}
+
+body.dark-theme .SearchBar-Logo {
+    color: var(--search-bar-color-light);
 }
 
 .SearchBar-sort-options {
@@ -40,7 +58,7 @@
     width: 200px;
 }
 
-.SearchBar-submit a {
+.SearchBar-submit button {
     padding: 10px 20px;
     background-color: #ff6f61;
     color: white;
@@ -49,7 +67,7 @@
     cursor: pointer;
 }
 
-.SearchBar-submit a:hover {
+.SearchBar-submit button:hover {
     background-color: #ff4d4d;
 }
 

@@ -2,12 +2,6 @@ import React from 'react';
 import './SearchBar.css';
 import { useNavigate } from 'react-router-dom';
 
-const sortByOptions = {
-    'Best Match': 'best_match',
-    'Highest Rated': 'rating',
-    'Most Reviewed': 'review_count'
-};
-
 function SearchBar({ searchYelp }) {
     const [term, setTerm] = React.useState('');
     const [location, setLocation] = React.useState('');
@@ -30,7 +24,7 @@ function SearchBar({ searchYelp }) {
         event.preventDefault();
         if (term && location) {
             searchYelp(term, location, sortBy);
-            navigate('/'); // Redirect to the business list view
+            navigate('/businesses'); // Redirect to the business list view
         } else {
             alert('Please enter both a search term and location.');
         }
@@ -42,22 +36,35 @@ function SearchBar({ searchYelp }) {
         }
     };
 
+    const goHome = (event) => {
+        navigate('/');
+    };
+
     return (
         <div className="SearchBar">
+            <div className="SearchBar-Logo">
+                <h2 onClick={() => goHome()}>Ravenous!</h2>
+            </div>
             <div className="SearchBar-sort-options">
                 <ul>
-                    {Object.keys(sortByOptions).map(sortByOption => {
-                        let sortByOptionValue = sortByOptions[sortByOption];
-                        return (
-                            <li
-                                key={sortByOptionValue}
-                                className={sortBy === sortByOptionValue ? 'active' : ''}
-                                onClick={() => handleSortByChange(sortByOptionValue)}
-                            >
-                                {sortByOption}
-                            </li>
-                        );
-                    })}
+                    <li
+                        className={sortBy === 'best_match' ? 'active' : ''}
+                        onClick={() => handleSortByChange('best_match')}
+                    >
+                        Best Match
+                    </li>
+                    <li
+                        className={sortBy === 'rating' ? 'active' : ''}
+                        onClick={() => handleSortByChange('rating')}
+                    >
+                        Highest Rated
+                    </li>
+                    <li
+                        className={sortBy === 'review_count' ? 'active' : ''}
+                        onClick={() => handleSortByChange('review_count')}
+                    >
+                        Most Reviewed
+                    </li>
                 </ul>
             </div>
             <div className="SearchBar-fields">
@@ -75,7 +82,7 @@ function SearchBar({ searchYelp }) {
                 />
             </div>
             <div className="SearchBar-submit">
-                <a onClick={handleSearch}>Let's Go</a>
+                <button onClick={handleSearch}>Let's Go</button>
             </div>
         </div>
     );
