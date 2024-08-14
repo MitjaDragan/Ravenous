@@ -17,16 +17,16 @@
 }
 
 .App-logo {
-  height: 60px; /* Adjust this height as needed */
+  height: 60px;
   cursor: pointer;
 }
 
 .App-name {
   font-size: 24px;
   font-weight: bold;
-  margin: 0 auto;
+  margin: auto;
   text-align: center;
-  flex-grow: 1; /* Make the name occupy the center space */
+  padding-right: 5%;
 }
 
 .ThemeToggle {
@@ -34,5 +34,5 @@
 }
 
 body {
-  padding-top: 80px; /* Adjust based on header height to avoid content being hidden under header */
+  padding-top: 80px;
 }

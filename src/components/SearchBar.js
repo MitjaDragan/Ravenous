@@ -2,12 +2,14 @@ import React from 'react';
 import './SearchBar.css';
 import { useAuth } from '../context/AuthContext';
 import { GoogleLogin } from '@react-oauth/google';
+import { useNavigate } from 'react-router-dom';
 
 function SearchBar({ searchYelp }) {
   const { user, login, logout } = useAuth();
   const [term, setTerm] = React.useState('');
   const [location, setLocation] = React.useState('');
   const [sortBy, setSortBy] = React.useState('best_match');
+  const navigate = useNavigate();
 
   const handleTermChange = (event) => {
     setTerm(event.target.value);
@@ -23,7 +25,18 @@ function SearchBar({ searchYelp }) {
 
   const handleSearch = (event) => {
     event.preventDefault();
-    searchYelp(term, location, sortBy);
+        if (term && location) {
+            searchYelp(term, location, sortBy);
+            navigate('/businesses');
+        } else {
+            alert("Please enter both search term and location.");
+        }
+    };
+
+  const handleKeyPress = (event) => {
+      if (event.key === 'Enter') {
+          handleSearch(event);
+      }
   };
 
   return (
@@ -56,15 +69,17 @@ function SearchBar({ searchYelp }) {
             placeholder="Search Businesses"
             value={term}
             onChange={handleTermChange}
+            onKeyPress={handleKeyPress}
           />
           <input
             placeholder="Where?"
             value={location}
             onChange={handleLocationChange}
+            onKeyPress={handleKeyPress}
           />
         </div>
         <div className="SearchBar-submit">
-          <a onClick={handleSearch}>Let's Go</a>
+          <button onClick={handleSearch}>Let's Go</button>
         </div>
         <div className="SearchBar-login">
           {user ? (

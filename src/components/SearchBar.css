@@ -22,8 +22,6 @@
     display: flex;
     justify-content: center;
     list-style: none;
-    padding: 0;
-    margin: 0;
   }
   
   .SearchBar-sort-options li {
@@ -39,7 +37,7 @@
   .SearchBar-fields {
     display: flex;
     flex-direction: column;
-    width: 90%;
+    width: 50%;
     margin: 20px 0;
   }
   
@@ -52,7 +50,7 @@
     font-size: 1rem;
   }
   
-  .SearchBar-submit a {
+  .SearchBar-submit button {
     display: inline-block;
     padding: 10px 20px;
     background-color: var(--accent-color);
@@ -65,7 +63,7 @@
     transition: background-color 0.3s;
   }
   
-  .SearchBar-submit a:hover {
+  .SearchBar-submit button:hover {
     background-color: #005bb5;
   }
   

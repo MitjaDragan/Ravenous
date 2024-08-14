@@ -1,16 +1,20 @@
-import React from 'react';
 import { GoogleLogin } from '@react-oauth/google';
 
-function Login({ onSuccess, onFailure }) {
+function LoginButton() {
+  const onSuccess = (response) => {
+    console.log('Login Success:', response);
+    // Handle successful login here (e.g., send the token to your server)
+  };
+
+  const onFailure = (error) => {
+    console.error('Login Failed:', error);
+  };
+
   return (
-    <div className="Login">
-      <GoogleLogin
-        onSuccess={onSuccess}
-        onFailure={onFailure}
-        buttonText="Login with Google"
-      />
-    </div>
+    <GoogleLogin
+      onSuccess={onSuccess}
+      onFailure={onFailure}
+      useOneTap
+    />
   );
 }
-
-export default Login;

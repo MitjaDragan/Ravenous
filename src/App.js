@@ -7,7 +7,7 @@ import BusinessDetail from './components/BusinessDetail';
 import ThemeToggle from './components/ThemeToggle';
 import SearchBar from './components/SearchBar';
 import Yelp from './Yelp';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { Link, BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import { AuthProvider } from './context/AuthContext';
 import logo from './assets/images/logo.png';  // Import your logo image
@@ -26,7 +26,13 @@ function App() {
 
   const searchYelp = (term, location, sortBy) => {
     Yelp.search(term, location, sortBy).then((businesses) => {
-      setBusinesses(businesses);
+      if (businesses) {
+        setBusinesses(businesses);
+      } else {
+        console.error('No businesses found');
+      }
+    }).catch((error) => {
+      console.error('Error fetching businesses:', error);
     });
   };
 
@@ -36,7 +42,9 @@ function App() {
         <Router>
           <div className="App">
             <header className="App-header">
-              <img src={logo} alt="Logo" className="App-logo" />
+              <Link to="/">
+                <img src={logo} alt="Logo" className="App-logo" />
+              </Link>
               <h1 className="App-name">Ravenous</h1>
               <ThemeToggle toggleTheme={toggleTheme} theme={theme} />
             </header>
