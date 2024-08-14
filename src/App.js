@@ -8,6 +8,9 @@ import ThemeToggle from './components/ThemeToggle';
 import SearchBar from './components/SearchBar';
 import Yelp from './Yelp';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { GoogleOAuthProvider } from '@react-oauth/google';
+import { AuthProvider } from './context/AuthContext';
+import logo from './assets/images/logo.png';  // Import your logo image
 
 function App() {
   const [businesses, setBusinesses] = useState([]);
@@ -22,36 +25,31 @@ function App() {
   }, [theme]);
 
   const searchYelp = (term, location, sortBy) => {
-    Yelp.search(term, location, sortBy).then(businesses => {
+    Yelp.search(term, location, sortBy).then((businesses) => {
       setBusinesses(businesses);
     });
   };
 
   return (
-    <Router>
-      <div className="App">
-        <ThemeToggle toggleTheme={toggleTheme} theme={theme} />
-        <SearchBar searchYelp={searchYelp} />
-        <Routes>
-          <Route path="/" 
-            element={
-              <>
-                <Homepage searchYelp={searchYelp} />
-              </>
-            } 
-          />
-          <Route
-            path="/businesses"
-            element={
-              <>
-                <BusinessList businesses={businesses} />
-              </>
-            }
-          />
-          <Route path="/business/:id" element={<BusinessDetail />} />
-        </Routes>
-      </div>
-    </Router>
+    <GoogleOAuthProvider clientId="791238341383-855u4aetvghn9htflkqfcf7eb2krkq55.apps.googleusercontent.com">
+      <AuthProvider>
+        <Router>
+          <div className="App">
+            <header className="App-header">
+              <img src={logo} alt="Logo" className="App-logo" />
+              <h1 className="App-name">Ravenous</h1>
+              <ThemeToggle toggleTheme={toggleTheme} theme={theme} />
+            </header>
+            <SearchBar searchYelp={searchYelp} />
+            <Routes>
+              <Route path="/" element={<Homepage />} />
+              <Route path="/businesses" element={<BusinessList businesses={businesses} />} />
+              <Route path="/business/:id" element={<BusinessDetail />} />
+            </Routes>
+          </div>
+        </Router>
+      </AuthProvider>
+    </GoogleOAuthProvider>
   );
 }
 

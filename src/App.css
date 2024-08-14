@@ -1,15 +1,38 @@
 .App {
   font-family: Arial, sans-serif;
-  padding: 20px;
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
+.App-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: var(--background-color-light);
+  border-bottom: 1px solid #ccc;
+  z-index: 1000; /* Ensure it stays on top of other elements */
 }
 
-a:hover {
-  color: var(--accent-color);
+.App-logo {
+  height: 60px; /* Adjust this height as needed */
+  cursor: pointer;
 }
 
-/* Additional global styles can be added here */
+.App-name {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0 auto;
+  text-align: center;
+  flex-grow: 1; /* Make the name occupy the center space */
+}
+
+.ThemeToggle {
+  margin-left: auto;
+}
+
+body {
+  padding-top: 80px; /* Adjust based on header height to avoid content being hidden under header */
+}

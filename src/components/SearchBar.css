@@ -1,77 +1,89 @@
 .SearchBar {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--background-color-light);
+  }
+  
+  .SearchBar-container {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     align-items: center;
-    margin-bottom: 40px;
-    padding: 40px;
-    background-color: var(--search-bar-color-light);
+    background-color: white;
+    padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-body.dark-theme .SearchBar {
-    background-color: var(--search-bar-color-dark);
-}
-
-.SearchBar-Logo {
-    justify-content: center;
-    margin: auto;
-    color: var(--search-bar-color-dark);
-}
-
-.SearchBar-Logo:hover {
-    cursor: pointer;
-}
-
-body.dark-theme .SearchBar-Logo {
-    color: var(--search-bar-color-light);
-}
-
-.SearchBar-sort-options {
+    width: 90%; /* Adjusted for smaller width */
+  }
+  
+  .SearchBar-sort-options ul {
     display: flex;
     justify-content: center;
-    margin-bottom: 20px;
-}
-
-.SearchBar-sort-options ul {
-    display: flex;
     list-style: none;
     padding: 0;
-}
-
-.SearchBar-sort-options li {
-    margin: 0 10px;
+    margin: 0;
+  }
+  
+  .SearchBar-sort-options li {
+    margin-right: 15px;
     cursor: pointer;
-}
-
-.SearchBar-fields {
+  }
+  
+  .SearchBar-sort-options .active {
+    font-weight: bold;
+    border-bottom: 2px solid var(--accent-color);
+  }
+  
+  .SearchBar-fields {
     display: flex;
-    justify-content: center;
-    margin-bottom: 40px;
-}
-
-.SearchBar-fields input {
-    margin: 0 10px;
+    flex-direction: column;
+    width: 90%;
+    margin: 20px 0;
+  }
+  
+  .SearchBar-fields input {
+    width: 100%;
     padding: 10px;
+    margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    width: 200px;
-}
-
-.SearchBar-submit button {
+    font-size: 1rem;
+  }
+  
+  .SearchBar-submit a {
+    display: inline-block;
     padding: 10px 20px;
-    background-color: #ff6f61;
-    color: white;
+    background-color: var(--accent-color);
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: bold;
+    border-radius: 4px;
     text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  .SearchBar-submit a:hover {
+    background-color: #005bb5;
+  }
+  
+  .SearchBar-login {
+    margin-top: 20px;
+  }
+  
+  .logout-button, .login-button {
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
     border-radius: 4px;
     cursor: pointer;
-}
-
-.SearchBar-submit button:hover {
-    background-color: #ff4d4d;
-}
-
-.active {
-    font-weight: bold;
-    color: #ff6f61;
-}
+    transition: background-color 0.3s;
+  }
+  
+  .logout-button:hover, .login-button:hover {
+    background-color: #005bb5;
+  }
+  
