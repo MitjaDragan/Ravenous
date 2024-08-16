@@ -6,6 +6,7 @@ import BusinessList from './components/BusinessList';
 import BusinessDetail from './components/BusinessDetail';
 import ThemeToggle from './components/ThemeToggle';
 import SearchBar from './components/SearchBar';
+import Favorites from './components/Favorites';
 import Yelp from './Yelp';
 import { Link, BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { GoogleOAuthProvider } from '@react-oauth/google';
@@ -53,6 +54,7 @@ function App() {
               <Route path="/" element={<Homepage />} />
               <Route path="/businesses" element={<BusinessList businesses={businesses} />} />
               <Route path="/business/:id" element={<BusinessDetail />} />
+              <Route path="/favorites" element={<Favorites />} />
             </Routes>
           </div>
         </Router>
