@@ -39,6 +39,10 @@ function SearchBar({ searchYelp }) {
       }
   };
 
+  const handleFavoritesClick = () => {
+    navigate('/favorites');
+  };
+
   return (
     <div className="SearchBar">
       <div className="SearchBar-container">
@@ -83,9 +87,14 @@ function SearchBar({ searchYelp }) {
         </div>
         <div className="SearchBar-login">
           {user ? (
-            <button onClick={logout} className="logout-button">
-              Logout
-            </button>
+            <>
+              <button onClick={logout} className="logout-button">
+                Logout
+              </button>
+              <button onClick={handleFavoritesClick} className="favorites-button">
+                Favorites
+              </button>
+            </>
           ) : (
             <GoogleLogin
               onSuccess={login}
