@@ -11,34 +11,70 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+.Business-header {
+    width: 100%; /* Ensure the header spans the full width */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Business-name {
+    flex-grow: 1;
+    text-decoration: none;
+    color: black;
+}
+
 .image-container {
     width: 100%;
+    height: 150px;
     overflow: hidden;
     border-radius: 4px;
+    margin-bottom: 15px; /* Add some spacing below the image */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .image-container img {
     width: 100%;
-    height: auto;
-    object-fit: cover;
+    height: 100%;
+    object-fit: cover; /* Scale the image to cover the container while maintaining aspect ratio */
 }
 
-.BusinessInformation {
+.Business-information {
     text-align: center;
+    width: 100%; /* Ensure the information spans the full width */
 }
 
-.BusinessAddress, .BusinessReviews {
+.Business-address, .Business-reviews {
     margin-top: 10px;
+    width: 100%;
+    text-align: left; /* Align text to the left */
 }
 
-.BusinessAddress p {
+.Business-address p {
     margin: 5px 0;
 }
 
-.BusinessReviews h3 {
+.Business-reviews h3 {
     margin: 5px 0;
 }
 
 .rating {
     color: #FFA500;
+}
+
+.favorite-star {
+    font-size: 24px;
+    color: lightgray;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.favorite-star.is-favorite {
+    color: gold;
+}
+
+.favorite-star:hover {
+    color: gold;
 }

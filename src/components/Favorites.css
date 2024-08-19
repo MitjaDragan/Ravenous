@@ -1,49 +1,49 @@
 .Favorites-container {
-  max-width: 500px;
-  margin: 0 auto; /* Center horizontally */
+  max-width: 800px;
+  margin: 0 auto;
   padding: 20px;
   background-color: #f9f9f9;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  text-align: center; /* Center the text */
+  text-align: left;
 }
 
-/* Style the heading */
 .Favorites-container h1 {
+  text-align: center;
   margin-bottom: 20px;
 }
 
-ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  
-  li {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 8px;
-    border-bottom: 1px solid #ccc;
-  }
-  
-  input {
-    margin-top: 20px;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  }
-  
-  button {
-    margin-left: 10px;
-    padding: 8px 12px;
-    background-color: var(--accent-color);
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  button:hover {
-    background-color: #005bb5;
-  }
-  
+.Favorite-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  border-bottom: 1px solid #ccc;
+}
+
+.Favorite-details {
+  display: flex;
+  align-items: center;
+}
+
+.Favorite-image {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-right: 20px;
+}
+
+.Remove-button {
+  background-color: #ff6666;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.Remove-button:hover {
+  background-color: #e60000;
+}
