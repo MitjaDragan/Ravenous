@@ -1,25 +1,30 @@
 :root {
+    /* Light Theme */
     --background-color-light: #f9f9f9;
-    --text-color-light: #333;
-    --background-color-dark: #121212;
-    --text-color-dark: #ffffff;
-    --accent-color: #121212;
-    --search-bar-color-light: #f9f9f9;
-    --search-bar-color-dark: #333;
-}
-
-body.light-theme {
-    background-color: var(--background-color-light);
-    color: var(--text-color-light);
-}
-
-body.dark-theme {
-    background-color: var(--background-color-dark);
-    color: var(--text-color-dark);
-}
-
-.App {
-    transition: background-color 0.4s, color 0.4s;
-}
-
-/* Other component-specific styles */
+    --background-color-dark: #333;
+    --text-color-light: #000;
+    --text-color-dark: #fff;
+    --input-background-light: #fff;
+    --input-background-dark: #444;
+    --input-border-color-light: #ccc;
+    --input-border-color-dark: #666;
+    --accent-color: #005bb5;
+    --accent-color-dark: orange;
+  }
+  
+  body.light-theme {
+    --background-color: var(--background-color-light);
+    --text-color: var(--text-color-light);
+    --input-background: var(--input-background-light);
+    --input-border-color: var(--input-border-color-light);
+    --accent-color: var(--accent-color);
+  }
+  
+  body.dark-theme {
+    --background-color: var(--background-color-dark);
+    --text-color: var(--text-color-dark);
+    --input-background: var(--input-background-dark);
+    --input-border-color: var(--input-border-color-dark);
+    --accent-color: var(--accent-color-dark);
+  }
+  

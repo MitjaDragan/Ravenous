@@ -1,5 +1,6 @@
 .App {
   font-family: Arial, sans-serif;
+  color: var(--text-color); /* Use theme variable for text color */
 }
 
 .App-header {
@@ -11,8 +12,8 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: var(--background-color-light);
-  border-bottom: 1px solid #ccc;
+  background-color: var(--background-color); /* Use theme variable for background color */
+  border-bottom: 1px solid var(--border-color); /* Use theme variable for border color */
   z-index: 1000; /* Ensure it stays on top of other elements */
 }
 
@@ -27,6 +28,7 @@
   margin: auto;
   text-align: center;
   padding-right: 5%;
+  color: var(--text-color); /* Use theme variable for text color */
 }
 
 .ThemeToggle {
@@ -35,4 +37,6 @@
 
 body {
   padding-top: 80px;
+  background-color: var(--background-color); /* Use theme variable for body background */
+  color: var(--text-color); /* Use theme variable for body text color */
 }
