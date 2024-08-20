@@ -11,11 +11,12 @@ import Yelp from './Yelp';
 import { Link, BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { GoogleOAuthProvider } from '@react-oauth/google';
 import { AuthProvider } from './context/AuthContext';
-import logo from './assets/images/logo.png';  // Import your logo image
+import darkLogo from './assets/images/logo.png';
+import lightLogo from './assets/images/logo_white.png';
 
 function App() {
   const [businesses, setBusinesses] = useState([]);
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = useState('dark');
 
   const toggleTheme = () => {
     setTheme((prevTheme) => (prevTheme === 'light' ? 'dark' : 'light'));
@@ -44,7 +45,11 @@ function App() {
           <div className="App">
             <header className="App-header">
               <Link to="/">
-                <img src={logo} alt="Logo" className="App-logo" />
+                <img
+                  src={theme === 'dark' ? lightLogo : darkLogo}
+                  alt="Logo"
+                  className="App-logo"
+                />
               </Link>
               <h1 className="App-name">Ravenous</h1>
               <ThemeToggle toggleTheme={toggleTheme} theme={theme} />

@@ -40,3 +40,42 @@ body {
   background-color: var(--background-color); /* Use theme variable for body background */
   color: var(--text-color); /* Use theme variable for body text color */
 }
+
+.Homepage {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.Homepage-carousel-item {
+  position: relative;
+}
+
+.Homepage-carousel-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.Homepage-carousel-caption {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.Homepage-carousel-caption h2 {
+  margin: 0;
+  font-size: 24px;
+}
+
+.Homepage-carousel-caption p {
+  margin: 5px 0 0;
+  font-size: 16px;
+}
