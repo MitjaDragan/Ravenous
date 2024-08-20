@@ -12,9 +12,9 @@
   justify-content: space-between;
   align-items: center;
   padding: 10px 20px;
-  background-color: var(--background-color); /* Use theme variable for background color */
-  border-bottom: 1px solid var(--border-color); /* Use theme variable for border color */
-  z-index: 1000; /* Ensure it stays on top of other elements */
+  background-color: var(--background-color);
+  border-bottom: 1px solid var(--border-color);
+  z-index: 1000;
 }
 
 .App-logo {
@@ -28,7 +28,13 @@
   margin: auto;
   text-align: center;
   padding-right: 5%;
-  color: var(--text-color); /* Use theme variable for text color */
+  color: var(--text-color);
+}
+
+@media (max-width: 600px) {
+  .App-name {
+    display: none;
+  }
 }
 
 .ThemeToggle {
@@ -37,8 +43,8 @@
 
 body {
   padding-top: 80px;
-  background-color: var(--background-color); /* Use theme variable for body background */
-  color: var(--text-color); /* Use theme variable for body text color */
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 
 .Homepage {
